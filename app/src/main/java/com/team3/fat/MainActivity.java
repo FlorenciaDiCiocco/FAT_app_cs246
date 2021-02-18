@@ -21,26 +21,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 ListItem user = (ListItem) lv.getItemAtPosition(position);
-                Toast.makeText(MainActivity.this, "Selected :" + " " + user.getName()+", "+ user.getLocation(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Selected :" + " " + user.getWeight()+", "+ user.getDate(), Toast.LENGTH_SHORT).show();
             }
         });
     }
     private ArrayList getListData() {
+        //This function is to add elements to the list that will be printed
+        float number = 88.5f;
         ArrayList<ListItem> results = new ArrayList<>();
         ListItem user1 = new ListItem();
-        user1.setName("Suresh Dasari");
-        user1.setDesignation("Team Leader");
-        user1.setLocation("Hyderabad");
+        user1.setDate("december");
+        user1.setWeight(number);
         results.add(user1);
         ListItem user2 = new ListItem();
-        user2.setName("Rohini Alavala");
-        user2.setDesignation("Agricultural Officer");
-        user2.setLocation("Guntur");
+        user2.setDate("december");
+        user2.setWeight(number);
         results.add(user2);
         ListItem user3 = new ListItem();
-        user3.setName("Trishika Dasari");
-        user3.setDesignation("Charted Accountant");
-        user3.setLocation("Guntur");
+        user3.setDate("december");
+        user3.setWeight(number);
         results.add(user3);
         return results;
     }

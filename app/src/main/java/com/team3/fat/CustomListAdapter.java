@@ -37,14 +37,12 @@ public class CustomListAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.uName = (TextView) v.findViewById(R.id.name);
             holder.uDesignation = (TextView) v.findViewById(R.id.designation);
-            holder.uLocation = (TextView) v.findViewById(R.id.location);
             v.setTag(holder);
         } else {
             holder = (ViewHolder) v.getTag();
         }
-        holder.uName.setText(listData.get(position).getName());
-        holder.uDesignation.setText(listData.get(position).getDesignation());
-        holder.uLocation.setText(listData.get(position).getLocation());
+        holder.uName.setText(listData.get(position).getDate());
+        holder.uDesignation.setText(listData.get(position).getWeight_String());
         return v;
     }
     static class ViewHolder {

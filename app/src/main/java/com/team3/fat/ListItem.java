@@ -1,25 +1,24 @@
 package com.team3.fat;
 
 public class ListItem {
-    private String name;
-    private String designation;
-    private String location;
-    public String getName() {
-        return name;
+    private String date;
+    private float weight;
+
+    public float getWeight() {
+        return weight;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public String getWeight_String(){
+        return Float.toString(weight);
     }
-    public String getDesignation() {
-        return designation;
+    public void setWeight(float MyWeight) {
+        this.weight = MyWeight;
     }
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public String getDate() {
+        return date;
     }
-    public String getLocation() {
-        return location;
+    public void setDate(String Date) {
+        this.date = Date;
     }
-    public void setLocation(String location) {
-        this.location = location;
-    }
+
 }
