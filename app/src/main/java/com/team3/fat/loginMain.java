@@ -30,8 +30,7 @@ public class loginMain extends AppCompatActivity {
 
         userEmail = findViewById(R.id.username);
         userPassword = findViewById(R.id.password);
-
-        Button login = findViewById(R.id.Login);
+        Auth = FirebaseAuth.getInstance();
 
         Button newUser = findViewById(R.id.newUser);
         newUser.setOnClickListener(new View.OnClickListener() {
@@ -49,8 +48,8 @@ public class loginMain extends AppCompatActivity {
             }
         });
 
-        Auth=FirebaseAuth.getInstance();
 
+        Button login = findViewById(R.id.Login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
