@@ -1,21 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="96dp"
+        android:layout_height="74dp"
+        android:src="@drawable/icon"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="-2dp" />
+
 
     <TextView
         android:id="@+id/header"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:text="USER NAME"
+        android:layout_width="239dp"
+        android:layout_height="68dp"
+        android:background="@drawable/my_header_border"
+        android:fontFamily="@font/lato"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.2"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="User's Name"
         android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:textColor="@color/white"
+        android:textFontWeight="700"
+        android:textSize="18dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView" />
+
 
     <ListView
         android:id="@+id/user_list"
-        android:layout_width="fill_parent"
-        android:layout_height="620dp"
-        android:dividerHeight="1dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="0dp"
+        android:stackFromBottom="true"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:layout_editor_absoluteX="2dp" />
 
-</LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="133dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="1dp"
+        android:text="Button"
+        app:layout_constraintTop_toBottomOf="@+id/user_list"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="650dp"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="133dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/user_list"
+        tools:layout_editor_absoluteY="650dp"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="133dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/user_list"
+        tools:layout_editor_absoluteY="650dp"/>
+
+    <Button
+        android:id="@+id/addbutton"
+        android:layout_width="73dp"
+        android:layout_height="68dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/header"
+        tools:layout_editor_absoluteY="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
