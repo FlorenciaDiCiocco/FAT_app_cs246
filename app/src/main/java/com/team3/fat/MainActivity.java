@@ -82,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void open_registerUser(){
-        Intent intent = new Intent(this, registerUser.class);
+        Intent intent = new Intent(this, MainActivity.class);//registerUser.class
         startActivity(intent);
     }
 
     public void open_forgotPassword(){
-        Intent intent = new Intent(this, forgotPassword.class);
+        Intent intent = new Intent(this, MainActivity.class);//forgotPassword.class
         startActivity(intent);
     }
 };
