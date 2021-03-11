@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class registerUser extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-
+/*
     @Override
     public void onCreate(){
         mAuth = FirebaseAuth.getInstance();
@@ -41,4 +41,6 @@ public class registerUser extends AppCompatActivity {
 }
 
     }
+    */
+
 });
