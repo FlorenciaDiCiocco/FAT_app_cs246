@@ -21,18 +21,23 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth Auth;
     EditText userEmail, userPassword;
+    Button newUser, forgotPass, login;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_home);
+        setContentView(R.layout.activity_main);
 
-        userEmail = findViewById(R.id.regEmail);
-        userPassword = findViewById(R.id.regPass);
         Auth = FirebaseAuth.getInstance();
 
-        Button newUser = findViewById(R.id.newUser);
+        userEmail = findViewById(R.id.regEmail);
+        userPassword = findViewById(R.id.confirmPass);
+
+        newUser = findViewById(R.id.newUser);
+        forgotPass = findViewById(R.id.forgotPass);
+        login = findViewById(R.id.signIn);
+
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button forgotPass = findViewById(R.id.forgotPass);
         forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button login = findViewById(R.id .Login);
+        Button login = findViewById(R.id.signIn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,12 +86,17 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void open_registerUser(){
-        Intent intent = new Intent(this, registerUser.class);
+        Intent intent = new Intent(this, RegisterUser.class);
         startActivity(intent);
     }
 
     public void open_forgotPassword(){
-        Intent intent = new Intent(this, forgotPassword.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-};
+
+    public void open_loginSuccessful(){
+        Intent intent = new Intent(this, DisplayHome.class);
+        startActivity(intent);
+    }
+}

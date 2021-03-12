@@ -47,11 +47,10 @@ public class DisplayHome extends AppCompatActivity {
         return results;
     }
 
-    public void addWeight(){
+    public void addWeight(View view){
         Intent intent = new Intent(this, addWeight.class);
 
-        //intent.putExtra(EXTRA_MESSAGE, message2);
-        Log.d(this.getLocalClassName(),"About to create intent with new weight.");
+        //Log.d(this.getLocalClassName(),"About to create intent with new weight.");
         startActivity(intent);
     }
 }
