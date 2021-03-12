@@ -4,8 +4,10 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -43,4 +45,12 @@ public class MainActivity extends AppCompatActivity {
         results.add(user3);
         return results;
     }
+
+    //Weight type convert button
+    public void onClick(View view){
+        Button button = (Button) findViewById(R.id.weight_type_button);
+        button.setText("Yo yo yo");
+
+    }
+
 }

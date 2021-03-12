@@ -9,6 +9,6 @@ public class WeightAdding extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weight_adding);
+        setContentView(R.layout.add_weight);
     }
 }

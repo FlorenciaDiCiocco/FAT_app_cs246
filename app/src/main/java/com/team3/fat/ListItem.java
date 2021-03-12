@@ -3,6 +3,8 @@ package com.team3.fat;
 public class ListItem {
     private String date;
     private float weight;
+    private String weight_type = "POUND";
+
 
     public float getWeight() {
         return weight;
@@ -21,4 +23,21 @@ public class ListItem {
         this.date = Date;
     }
 
+    public void convertWeight(){
+        switch(weight_type){
+            case "KILO":
+                calcKiloToPound();
+                break;
+            case "POUND":
+                calcPoundToKilo();
+                break;
+        }
+    }
+    public void calcPoundToKilo() {
+        this.weight = (float) (this.weight * 0.45359237);
+    }
+
+    public void calcKiloToPound() {
+        this.weight = (float) (this.weight * 2.2046226218);
+    }
 }
