@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FAT</string>
     <string name="user_name">USER NAME</string>
+    <string name="addWeight">Add Daily Weight</string>
 </resources>

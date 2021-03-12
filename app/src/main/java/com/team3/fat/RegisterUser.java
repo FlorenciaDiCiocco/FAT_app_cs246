@@ -1,5 +1,7 @@
 package com.team3.fat;
 
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;

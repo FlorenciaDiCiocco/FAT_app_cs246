@@ -1,7 +1,10 @@
 package com.team3.fat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -42,5 +45,13 @@ public class DisplayHome extends AppCompatActivity {
         user3.setWeight(number);
         results.add(user3);
         return results;
+    }
+
+    public void addWeight(){
+        Intent intent = new Intent(this, addWeight.class);
+
+        //intent.putExtra(EXTRA_MESSAGE, message2);
+        Log.d(this.getLocalClassName(),"About to create intent with new weight.");
+        startActivity(intent);
     }
 }
