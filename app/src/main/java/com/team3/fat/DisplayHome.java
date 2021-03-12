@@ -13,7 +13,7 @@ public class DisplayHome extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_display_home);
         ArrayList userList = getListData();
         final ListView lv = (ListView) findViewById(R.id.user_list);
         lv.setAdapter(new CustomListAdapter(this, userList));

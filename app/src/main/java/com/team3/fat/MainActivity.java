@@ -7,10 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -28,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userEmail = findViewById(R.id.username);
-        userPassword = findViewById(R.id.password);
+        userEmail = findViewById(R.id.regEmail);
+        userPassword = findViewById(R.id.confirmPass);
         Auth = FirebaseAuth.getInstance();
 
         Button newUser = findViewById(R.id.newUser);
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button login = findViewById(R.id.Login);
+        Button login = findViewById(R.id.signIn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            startActivity(new Intent(getApplicationContext(), DisplayHome.class));  //change this to the main activity after login and also change all loginMain to MainActivity
+                            open_loginSuccessful();
                         }
                         else{
                             Toast.makeText(MainActivity.this, "Login Failed, Please try again", Toast.LENGTH_SHORT).show();
@@ -79,15 +77,20 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-    };
+    }
 
     public void open_registerUser(){
-        Intent intent = new Intent(this, MainActivity.class);//registerUser.class
+        Intent intent = new Intent(this, RegisterUser.class);
         startActivity(intent);
     }
 
     public void open_forgotPassword(){
-        Intent intent = new Intent(this, MainActivity.class);//forgotPassword.class
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-};
+
+    public void open_loginSuccessful(){
+        Intent intent = new Intent(this, DisplayHome.class);
+        startActivity(intent);
+    }
+}
