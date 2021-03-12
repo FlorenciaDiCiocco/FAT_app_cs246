@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth Auth;
     EditText userEmail, userPassword;
+    Button newUser, forgotPass, login;
 
 
     @Override
@@ -26,11 +27,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userEmail = findViewById(R.id.regEmail);
-        userPassword = findViewById(R.id.confirmPass);
         Auth = FirebaseAuth.getInstance();
 
-        Button newUser = findViewById(R.id.newUser);
+        userEmail = findViewById(R.id.regEmail);
+        userPassword = findViewById(R.id.confirmPass);
+
+        newUser = findViewById(R.id.newUser);
+        forgotPass = findViewById(R.id.forgotPass);
+        login = findViewById(R.id.signIn);
+
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button forgotPass = findViewById(R.id.forgotPass);
         forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        Button login = findViewById(R.id.signIn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

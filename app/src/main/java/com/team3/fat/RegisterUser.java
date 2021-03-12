@@ -27,11 +27,13 @@ public class RegisterUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
 
+        Auth = FirebaseAuth.getInstance();
+
         regEmail = findViewById(R.id.regEmail);
         regPass = findViewById(R.id.regPass);
         confirmPass = findViewById(R.id.confirmPass);
+
         signUp = findViewById(R.id.signUp);
-        Auth = FirebaseAuth.getInstance();
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
