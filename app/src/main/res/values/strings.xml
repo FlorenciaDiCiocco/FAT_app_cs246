@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">FAT</string>
+<<<<<<< HEAD
     <string name="ibs_kilos">Ibs/Kilos</string>
+=======
+    <string name="user_name">USER NAME</string>
+    <string name="addWeight">Add Daily Weight</string>
+>>>>>>> f4a57d9cca685a6d3463d1c947a32d0a0fd249a6
 </resources>
