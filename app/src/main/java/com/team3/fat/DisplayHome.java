@@ -13,6 +13,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class DisplayHome extends AppCompatActivity {
+    public static String weight_type = "pounds";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

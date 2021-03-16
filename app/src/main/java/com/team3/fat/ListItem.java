@@ -3,7 +3,7 @@ package com.team3.fat;
 public class ListItem {
     private String date;
     private float weight;
-    private String weight_type = "POUND";
+    private String weight_type = "pound";
 
 
     public float getWeight() {
@@ -25,10 +25,10 @@ public class ListItem {
 
     public void convertWeight(){
         switch(weight_type){
-            case "KILO":
+            case "pound":
                 calcKiloToPound();
                 break;
-            case "POUND":
+            case "kilo":
                 calcPoundToKilo();
                 break;
         }

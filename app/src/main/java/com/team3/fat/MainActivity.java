@@ -4,20 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-<<<<<<< HEAD
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-=======
 import android.widget.Button;
 import android.widget.EditText;
->>>>>>> f4a57d9cca685a6d3463d1c947a32d0a0fd249a6
 import android.widget.Toast;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -97,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, forgotPassword.class);
         startActivity(intent);
     }
-<<<<<<< HEAD
 
     //Weight type convert button
     public void onClick(View view){
@@ -107,6 +102,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-=======
-};
->>>>>>> f4a57d9cca685a6d3463d1c947a32d0a0fd249a6
