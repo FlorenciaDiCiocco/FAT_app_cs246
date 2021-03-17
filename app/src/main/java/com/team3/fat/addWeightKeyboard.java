@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.inputmethod.InputConnection;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 //ignore how messed up the .xml looks, it is fixed when the app is actually run
 
@@ -80,7 +81,7 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
         keyValues.put(R.id.button_0, "0");
         keyValues.put(R.id.button_dot, ".");
         //This button needs to be worked on to save it back to the home screen! *************************************************
-        keyValues.put(R.id.button_save, "Saved!");
+        //keyValues.put(R.id.button_save, "Saved!");
     }
 
     @Override
@@ -95,7 +96,15 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
             } else {
                 inputConnection.commitText("", 1);
             }
-        } else {
+        }
+        else if (view.getId() == R.id.button_save) {
+            CharSequence selectedText = inputConnection.getSelectedText(0);
+            if (TextUtils.isEmpty(selectedText)) {
+                Toast weightToast = Toast.makeText(getContext(), "Weight Saved!!", Toast.LENGTH_LONG);
+                weightToast.show();
+            }
+        }
+        else {
             String value = keyValues.get(view.getId());
             inputConnection.commitText(value, 1);
         }
