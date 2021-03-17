@@ -34,10 +34,10 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
 
     public addWeightKeyboard(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        buttons(context, attrs);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    private void buttons(Context context, AttributeSet attrs) {
         LayoutInflater.from(context).inflate(R.layout.activity_add_weight_keyboard, this, true);
 
         //this is the buttons and how they put info back into the textbox
