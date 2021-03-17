@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button login = findViewById(R.id .Login);
+        Button login = findViewById(R.id.Login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void open_registerUser(){
-        Intent intent = new Intent(this, registerUser.class);
+        Intent intent = new Intent(this, RegisterUser.class);
         startActivity(intent);
     }
 
     public void open_forgotPassword(){
-        Intent intent = new Intent(this, forgotPassword.class);
+        Intent intent = new Intent(this, MainActivity.class); //ForgotPass.class
         startActivity(intent);
     }
 
