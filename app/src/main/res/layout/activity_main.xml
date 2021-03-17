@@ -37,10 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regEmail" />
 
-<<<<<<< HEAD
-
-</LinearLayout>
-=======
     <Button
         android:id="@+id/newUser"
         android:layout_width="wrap_content"
@@ -74,4 +70,3 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> f4a57d9cca685a6d3463d1c947a32d0a0fd249a6
