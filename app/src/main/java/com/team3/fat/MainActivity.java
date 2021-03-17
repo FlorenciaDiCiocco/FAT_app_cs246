@@ -96,10 +96,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Weight type convert button
-    public void onClick(View view){
-        Button button = (Button) findViewById(R.id.weight_type_button);
-        button.setText("Yo yo yo");
+    //public void onClick(View view){
+    //    Button button = (Button) findViewById(R.id.weight_type_button);
+    //    button.setText("Yo yo yo");
 
-    }
+    //}
 
 }
