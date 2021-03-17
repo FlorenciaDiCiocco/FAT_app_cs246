@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         userEmail = findViewById(R.id.regEmail);
-        userPassword = findViewById(R.id.regPass);
+        userPassword = findViewById(R.id.confirmPass);
         Auth = FirebaseAuth.getInstance();
 
         newUser = findViewById(R.id.newUser);
