@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,14 +32,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Auth = FirebaseAuth.getInstance();
-
         userEmail = findViewById(R.id.regEmail);
-        userPassword = findViewById(R.id.confirmPass);
+        userPassword = findViewById(R.id.regPass);
+        Auth = FirebaseAuth.getInstance();
 
         newUser = findViewById(R.id.newUser);
         forgotPass = findViewById(R.id.forgotPass);
-        login = findViewById(R.id.signIn);
+        login = findViewById(R.id.Login);
 
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        Button login = findViewById(R.id.signIn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-    };
+    }
 
     public void open_registerUser(){
         Intent intent = new Intent(this, RegisterUser.class);
@@ -91,12 +91,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void open_forgotPassword(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class); //ForgotPass.class
         startActivity(intent);
     }
 
-    public void open_loginSuccessful(){
-        Intent intent = new Intent(this, DisplayHome.class);
-        startActivity(intent);
+    //Weight type convert button
+    public void onClick(View view){
+        Button button = (Button) findViewById(R.id.weight_type_button);
+        button.setText("Yo yo yo");
+
     }
+
 }
