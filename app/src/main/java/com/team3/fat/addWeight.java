@@ -8,7 +8,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.EditText;
 
-public class AddWeight extends AppCompatActivity {
+public class addWeight extends AppCompatActivity {
 
     //Note for Lucy: This file = MainActivity
     @Override
