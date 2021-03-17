@@ -50,7 +50,7 @@ public class DisplayHome extends AppCompatActivity {
     }
 
     public void addWeight(View view){
-        Intent intent = new Intent(this, addWeight.class);
+        Intent intent = new Intent(this, AddWeight.class);
 
         //Log.d(this.getLocalClassName(),"About to create intent with new weight.");
         startActivity(intent);
