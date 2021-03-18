@@ -50,16 +50,20 @@ public class DisplayHome extends AppCompatActivity {
     }
 
     public void addWeight(View view){
-        Intent weightIntent = new Intent(this, addWeight.class);
+//        Intent weightIntent = new Intent(this, addWeight.class);
 //        startActivity(weightIntent);
-
+//
+//        Intent intentToWeight = new Intent(this, addWeightKeyboard.class);
+//        startActivity(intentToWeight);
         try {
+            Intent weightIntent = new Intent(this, addWeight.class);
             startActivity(weightIntent);
-            finish();
-            //Log.i("Finished sending email...", "");
+
+            Intent intentToWeight = new Intent(this, addWeightKeyboard.class);
+            startActivity(intentToWeight);
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(this,
-                    "There is some problem happening, so I can't open it today. Try again later!", Toast.LENGTH_LONG).show();
+                    "I'm having some problems! Try again later!", Toast.LENGTH_LONG).show();
         }
     }
 }

@@ -16,12 +16,12 @@ tools:context="com.team3.fat.addWeight">
     android:layout_alignParentTop="true"
     />
 
-<com.team3.fat.addWeightKeyboard
-    android:id="@+id/keyboard"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_alignParentBottom="true"
-    />
+    <com.team3.fat.addWeightKeyboard
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        />
 
 </RelativeLayout>
