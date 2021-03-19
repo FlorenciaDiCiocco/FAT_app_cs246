@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,12 +22,14 @@ import com.team3.fat.ListItem;
 import com.team3.fat.R;
 import com.team3.fat.addWeight;
 import com.team3.fat.addWeightKeyboard;
+import com.team3.fat.add_weight_final;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    Button adding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -43,6 +46,16 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), "Selected :" + " " + user.getWeight()+", "+ user.getDate(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        adding=root.findViewById(R.id.addbutton);
+        adding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent weightIntent = new Intent(getActivity(), add_weight_final.class);
+                startActivity(weightIntent);
+            }
+        });
+
         return root;
     }
 
@@ -65,21 +78,4 @@ public class HomeFragment extends Fragment {
         return results;
     }
 
-    public void addWeight(View view){
-//        Intent weightIntent = new Intent(this, addWeight.class);
-//        startActivity(weightIntent);
-//
-//        Intent intentToWeight = new Intent(this, addWeightKeyboard.class);
-//        startActivity(intentToWeight);
-        try {
-            Intent weightIntent = new Intent(getActivity(), addWeight.class);
-            startActivity(weightIntent);
-
-            Intent intentToWeight = new Intent(getActivity(), addWeightKeyboard.class);
-            startActivity(intentToWeight);
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(getActivity(),
-                    "I'm having some problems! Try again later!", Toast.LENGTH_LONG).show();
-        }
-    }
 }
