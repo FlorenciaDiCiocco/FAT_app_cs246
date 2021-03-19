@@ -1,6 +1,7 @@
 package com.team3.fat;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
@@ -80,8 +81,6 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
         keyValues.put(R.id.button_9, "9");
         keyValues.put(R.id.button_0, "0");
         keyValues.put(R.id.button_dot, ".");
-        //This button needs to be worked on to save it back to the home screen! *************************************************
-        //keyValues.put(R.id.button_save, "Saved!");
     }
 
     @Override
@@ -97,10 +96,11 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
                 inputConnection.commitText("", 1);
             }
         }
+        //this is how the save button will work, please don't delete stuff
         else if (view.getId() == R.id.button_save) {
             CharSequence selectedText = inputConnection.getSelectedText(0);
             if (TextUtils.isEmpty(selectedText)) {
-                Toast weightToast = Toast.makeText(getContext(), "Weight Saved!!", Toast.LENGTH_LONG);
+                Toast weightToast = Toast.makeText(getContext(), "Weight Not Saved!!", Toast.LENGTH_LONG);
                 weightToast.show();
             }
         }
@@ -113,4 +113,6 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
     public void setInputConnection(InputConnection ic) {
         inputConnection = ic;
     }
+
+
 }

@@ -2,13 +2,27 @@ package com.team3.fat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class add_weight_final extends AppCompatActivity {
+
+    private String dayweight;
+    private TextView dateTimeDisplay;
+    private Calendar calendar;
+    private SimpleDateFormat dateFormat;
+    private String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +39,21 @@ public class add_weight_final extends AppCompatActivity {
 
         InputConnection ic = editText.onCreateInputConnection(new EditorInfo());
         keyboard.setInputConnection(ic);
+    }
+
+    public void saveWeight(){
+        String weight = dayweight;
+
+        Intent intent = getIntent();
+        dayweight = intent.getStringExtra("DAYWEIGHT");
+        TextView weightObject = findViewById(R.id.editText);
+        weightObject.setText(weight);
+
+        SharedPreferences sharedPref = getSharedPreferences("dailyWeight.txt", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        editor.putString("DAYWEIGHT", dayweight);
+        editor.apply();
+
     }
 }

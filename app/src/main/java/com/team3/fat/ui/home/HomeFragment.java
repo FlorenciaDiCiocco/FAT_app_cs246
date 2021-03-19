@@ -68,14 +68,13 @@ public class HomeFragment extends Fragment {
         user1.setWeight(number);
         results.add(user1);
         ListItem user2 = new ListItem();
-        user2.setDate("december");
+        user2.setDate("december2");
         user2.setWeight(number);
         results.add(user2);
         ListItem user3 = new ListItem();
-        user3.setDate("december");
+        user3.setDate("december3");
         user3.setWeight(number);
         results.add(user3);
         return results;
     }
-
 }
