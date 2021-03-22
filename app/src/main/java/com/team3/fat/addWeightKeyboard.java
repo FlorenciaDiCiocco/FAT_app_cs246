@@ -1,6 +1,7 @@
 package com.team3.fat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -10,7 +11,11 @@ import android.view.View;
 import android.view.inputmethod.InputConnection;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 //ignore how messed up the .xml looks, it is fixed when the app is actually run
 
@@ -24,6 +29,11 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
 
     private SparseArray<String> keyValues = new SparseArray<>();
     private InputConnection inputConnection;
+//    private TextView dateTimeDisplay;
+//    private Calendar calendar;
+//    private SimpleDateFormat dateFormat;
+//    private String date;
+    private String dayweight;
 
     public addWeightKeyboard(Context context) {
         this(context, null, 0);
@@ -100,10 +110,15 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
         else if (view.getId() == R.id.button_save) {
             CharSequence selectedText = inputConnection.getSelectedText(0);
             if (TextUtils.isEmpty(selectedText)) {
+                add_weight_final input = new add_weight_final();
+                input.saveWeightDay();
+            }
+            else{
                 Toast weightToast = Toast.makeText(getContext(), "Weight Not Saved!!", Toast.LENGTH_LONG);
                 weightToast.show();
             }
         }
+        //otherwise....
         else {
             String value = keyValues.get(view.getId());
             inputConnection.commitText(value, 1);
@@ -113,6 +128,5 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
     public void setInputConnection(InputConnection ic) {
         inputConnection = ic;
     }
-
 
 }

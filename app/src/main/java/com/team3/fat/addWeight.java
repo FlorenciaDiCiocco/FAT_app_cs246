@@ -17,7 +17,7 @@ public class addWeight extends AppCompatActivity {
         setContentView(R.layout.activity_add_weight);
         //setContentView(R.layout.activity_add_weight_keyboard);
 
-        EditText editText = (EditText) findViewById(R.id.editText);
+        EditText editText = (EditText) findViewById(R.id.weightInput);
         addWeightKeyboard keyboard = (addWeightKeyboard) findViewById(R.id.keyboard);
         editText.setRawInputType(InputType.TYPE_CLASS_TEXT);
         editText.setTextIsSelectable(true);

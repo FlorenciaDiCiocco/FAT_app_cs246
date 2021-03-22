@@ -77,4 +77,23 @@ public class HomeFragment extends Fragment {
         results.add(user3);
         return results;
     }
+
+    public ArrayList listWeight() {
+        //This function is to add elements to the list that will be printed
+        float number = 88.5f;
+        ArrayList<ListItem> results = new ArrayList<>();
+        ListItem user1 = new ListItem();
+        user1.setDate("december");
+        user1.setWeight(number);
+        results.add(user1);
+        ListItem user2 = new ListItem();
+        user2.setDate("december2");
+        user2.setWeight(number);
+        results.add(user2);
+        ListItem user3 = new ListItem();
+        user3.setDate("december3");
+        user3.setWeight(number);
+        results.add(user3);
+        return results;
+    }
 }
