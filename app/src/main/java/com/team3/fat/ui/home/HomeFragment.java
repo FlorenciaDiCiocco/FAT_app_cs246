@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,10 +15,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.team3.fat.CustomListAdapter;
+import com.team3.fat.Globals;
 import com.team3.fat.ListItem;
 import com.team3.fat.R;
 import com.team3.fat.addWeight;
@@ -30,13 +33,14 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     Button adding;
+    EditText _myheader;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        ArrayList userList = getListData();
+        ArrayList userList = Globals.get_weight_list();
         final ListView lv = (ListView) root.findViewById(R.id.user_list);
         lv.setAdapter(new CustomListAdapter(getActivity(), userList));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -47,6 +51,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //Here we call Lucy's view to add a register
         adding=root.findViewById(R.id.addbutton);
         adding.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,44 +61,20 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
         return root;
     }
 
-    private ArrayList getListData() {
-        //This function is to add elements to the list that will be printed
-        float number = 88.5f;
-        ArrayList<ListItem> results = new ArrayList<>();
-        ListItem user1 = new ListItem();
-        user1.setDate("december");
-        user1.setWeight(number);
-        results.add(user1);
-        ListItem user2 = new ListItem();
-        user2.setDate("december2");
-        user2.setWeight(number);
-        results.add(user2);
-        ListItem user3 = new ListItem();
-        user3.setDate("december3");
-        user3.setWeight(number);
-        results.add(user3);
-        return results;
-    }
 
-    public ArrayList listWeight() {
+
+    public ArrayList getListData() {
         //This function is to add elements to the list that will be printed
         float number = 88.5f;
-        ArrayList<ListItem> results = new ArrayList<>();
-        ListItem user1 = new ListItem();
-        user1.setDate("december");
-        user1.setWeight(number);
-        results.add(user1);
-        ListItem user2 = new ListItem();
-        user2.setDate("december2");
-        user2.setWeight(number);
-        results.add(user2);
-        ListItem user3 = new ListItem();
-        user3.setDate("december3");
-        user3.setWeight(number);
-        results.add(user3);
-        return results;
+        ListItem input = new ListItem();
+        input.setDate("13 december");
+        input.setWeight(number);
+        Globals.set_weight(input);
+        return Globals.get_weight_list();
     }
 }

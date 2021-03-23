@@ -43,6 +43,7 @@ public class add_weight_final extends AppCompatActivity {
         keyboard.setInputConnection(ic);
 
         weightSomething = (EditText) findViewById(R.id.weightInput);
+
     }
 
     public void saveWeightDay(){

@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
+
                             startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));  //change this to the main activity after login and also change all loginMain to MainActivity
                         }
                         else{
