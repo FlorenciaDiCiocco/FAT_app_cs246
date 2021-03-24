@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.internal.Constants;
 import com.team3.fat.ui.home.HomeFragment;
@@ -43,6 +44,7 @@ public class add_weight_final extends AppCompatActivity {
 
     public void saveWeightDay() {
     //I don't know what to do here
-
+        Toast weightToast = Toast.makeText(this, "Weight Not Saved!!", Toast.LENGTH_LONG);
+        weightToast.show();
     }
 }
