@@ -8,5 +8,6 @@ public class Users {
     String userEmail = "";
     String password = "";
     float weight_goal = 0;
+    String weight_type = "pound";
 
 }
