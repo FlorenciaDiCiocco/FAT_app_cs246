@@ -40,6 +40,7 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+        getListData();
         ArrayList userList = Globals.get_weight_list();
         final ListView lv = (ListView) root.findViewById(R.id.user_list);
         lv.setAdapter(new CustomListAdapter(getActivity(), userList));
