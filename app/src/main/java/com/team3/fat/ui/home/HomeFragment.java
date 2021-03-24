@@ -23,7 +23,7 @@ import com.team3.fat.CustomListAdapter;
 import com.team3.fat.Globals;
 import com.team3.fat.ListItem;
 import com.team3.fat.R;
-import com.team3.fat.addWeight;
+
 import com.team3.fat.addWeightKeyboard;
 import com.team3.fat.add_weight_final;
 

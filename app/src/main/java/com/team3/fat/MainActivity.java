@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String stringEmail = userEmail.getText().toString().trim();
                 String stringPassword = userPassword.getText().toString().trim();
+                Globals.setuserEmail(stringEmail);
+                Globals.setuserpassword(stringPassword);
 
                 if (TextUtils.isEmpty(stringEmail)){
                     Toast.makeText(MainActivity.this, "Please enter a Email.", Toast.LENGTH_SHORT).show();
