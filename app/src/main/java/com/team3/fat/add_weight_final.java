@@ -44,7 +44,7 @@ public class add_weight_final extends AppCompatActivity {
         //this block is for the date
         Date c = Calendar.getInstance().getTime();
         System.out.println("Current time => " + c);
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        SimpleDateFormat df = new SimpleDateFormat("dd/MMM/yy", Locale.getDefault());
         String formattedDate = df.format(c);
 
         input.setDate(formattedDate);
