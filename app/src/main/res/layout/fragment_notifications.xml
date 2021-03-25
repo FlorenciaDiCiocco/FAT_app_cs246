@@ -6,18 +6,87 @@
     android:layout_height="match_parent"
     tools:context=".ui.notifications.NotificationsFragment">
 
+    <EditText
+        android:id="@+id/inchesHeight"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="inches"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toEndOf="@+id/feetHeight"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/feetHeight"
+        android:layout_width="84dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="68dp"
+        android:autoText="false"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="feet"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/buttonBMI"-->
+<!--        android:layout_width="127dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:text="BMI"-->
+<!--        tools:layout_editor_absoluteX="143dp"-->
+<!--        tools:layout_editor_absoluteY="200dp" />-->
+
     <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/numBMI"
+        android:layout_width="139dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:hint="There will be a BMI here!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBMI" />
+
+    <Spinner
+        android:id="@+id/BMIspinner"
+        android:layout_width="409dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBMI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:onClick="onClick"
+        android:text="@string/calc_BMI"
+        app:layout_constraintBottom_toTopOf="@+id/numBMI"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calcWithWeight"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/calcWithWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:ems="10"
+        android:hint="Give Your Weight"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
