@@ -1,10 +1,12 @@
 package com.team3.fat.ui.notifications;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -15,13 +17,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.team3.fat.Globals;
 import com.team3.fat.R;
+import com.team3.fat.Save_Goal;
 
 public class NotificationsFragment extends Fragment  implements View.OnClickListener{
 
     private NotificationsViewModel notificationsViewModel;
 
     public String pear;
+    TextView _mygoal;
+    Button Changing;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -48,6 +54,26 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
             }
 
         });
+
+        //I'll show the weight goal here:
+        _mygoal = root.findViewById(R.id.actual_weight_goal);
+        if(Globals.get_Goal()==0){
+            _mygoal.setText("You havent added a goal yet.\nYou can do it here:");
+        } else {
+            _mygoal.setText("Your goal is: "+Globals.get_Goal()+".\nYou can change it here:");
+        }
+
+        //Here we call change weight goal
+        Changing=root.findViewById(R.id.change_goal);
+        Changing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent weightIntent = new Intent(getActivity(), Save_Goal.class);
+                startActivity(weightIntent);
+            }
+        });
+
+
         return root;
     }
 

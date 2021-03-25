@@ -47,5 +47,15 @@ public class Globals {
     public static void set_weight_type(Weight_type newWeight_type) {
         _user.weight_type = newWeight_type;
     }
+
+    // Getter Goal
+    public static float get_Goal() {
+        return _user.weight_goal;
+    }
+
+    // Setter Goal
+    public static void set_Goal(float Goal) {
+        _user.weight_goal = Goal;
+    }
 }
 
