@@ -13,27 +13,30 @@
     <TextView
 
         android:id="@+id/designation"
-        android:layout_width="199dp"
-        android:layout_height="49dp"
-        android:textSize="17sp"
-        android:textStyle="bold"
+        android:layout_width="124dp"
+        android:layout_height="53dp"
+        android:fontFamily="@font/lato"
+        android:paddingLeft="7dp"
         android:paddingTop="7dp"
         android:paddingBottom="7dp"
-        android:paddingLeft="7dp"
-        android:fontFamily="@font/lato"
+        android:textSize="17sp"
+        android:textStyle="bold"
 
         />
 
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="199dp"
-        android:layout_height="49dp"
+        android:layout_width="115dp"
+        android:layout_height="52dp"
         android:layout_alignRight="@id/name"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
         android:layout_marginTop="1dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="0dp"
         android:layout_toEndOf="@+id/designation"
         android:layout_toRightOf="@+id/designation"
         android:drawableBottom="#5C34FF"
@@ -41,11 +44,20 @@
         android:gravity="right"
         android:paddingTop="7dp"
         android:paddingRight="7dp"
+
         android:paddingBottom="7dp"
         android:textColor="#343434"
-        android:textSize="17dp"
+        android:textSize="17dp" />
 
-        />
+    <TextView
+        android:id="@+id/calcBMI"
+        android:layout_width="130dp"
+        android:layout_height="49dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="137dp"
+        android:layout_marginRight="137dp" />
 
 
 </RelativeLayout>

@@ -1,8 +1,13 @@
 package com.team3.fat.ui.notifications;
 
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.team3.fat.R;
 
 public class NotificationsViewModel extends ViewModel {
 
@@ -10,7 +15,6 @@ public class NotificationsViewModel extends ViewModel {
 
     public NotificationsViewModel() {
         mText = new MutableLiveData<>();
-        //mText.setValue("This is notifications fragment");
     }
 
     public LiveData<String> getText() {
