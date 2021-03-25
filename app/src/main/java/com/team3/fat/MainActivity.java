@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String stringEmail = userEmail.getText().toString().trim();
                 String stringPassword = userPassword.getText().toString().trim();
-                Globals.setuserEmail(stringEmail);
-                Globals.setuserpassword(stringPassword);
 
                 if (TextUtils.isEmpty(stringEmail)){
                     Toast.makeText(MainActivity.this, "Please enter a Email.", Toast.LENGTH_SHORT).show();
@@ -76,7 +74,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-
+                            //I moved the setters to here because they were called before making sure that the user had input anything into them.
+                            //If they are placed here then we make sure that we send something useful.
+                            Globals.setuserEmail(stringEmail);
+                            Globals.setuserpassword(stringPassword);
                             startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));  //change this to the main activity after login and also change all loginMain to MainActivity
                         }
                         else{

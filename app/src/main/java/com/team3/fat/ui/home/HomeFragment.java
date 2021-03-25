@@ -33,13 +33,17 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     Button adding;
-    EditText _myheader;
+    TextView _myheader;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+        //display the user's mail
+        _myheader = root.findViewById(R.id.header);
+        _myheader.setText(Globals.getuserEmail());
+        //display the list
         ArrayList userList = Globals.get_weight_list();
         final ListView lv = (ListView) root.findViewById(R.id.user_list);
         lv.setAdapter(new CustomListAdapter(getActivity(), userList));

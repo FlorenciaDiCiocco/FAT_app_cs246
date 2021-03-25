@@ -36,7 +36,6 @@ public class add_weight_final extends AppCompatActivity {
         setContentView(R.layout.activity_add_weight_final);
     }
 
-
     public void Save_input(View view) {
         EditText input_txt = findViewById(R.id.input_text);
         float number = Float.valueOf(input_txt.getText().toString());

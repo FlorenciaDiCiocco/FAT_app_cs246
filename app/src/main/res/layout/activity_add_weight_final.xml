@@ -19,7 +19,9 @@
         android:inputType="phone"
         android:hint="input weight"
         tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="239dp" />
+        tools:layout_editor_absoluteY="239dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
 
     <Button
         android:id="@+id/save_button"
