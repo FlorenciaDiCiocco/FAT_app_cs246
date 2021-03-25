@@ -20,7 +20,8 @@ import com.team3.fat.R;
 public class NotificationsFragment extends Fragment  implements View.OnClickListener{
 
     private NotificationsViewModel notificationsViewModel;
-    public int peachy;
+
+    public String pear;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
         final TextView textView = root.findViewById(R.id.feetHeight);
 
+        //This code section is for the spinner found on the settings page.
+        //It does not take an input from the user and do anything with it, it is only there to display information to the user.
         String [] values =
                 {"BMI Categories", "< 16.0\tSeverely Underweight", "16.0 - 18.4\tUnderweight", "18.5 - 24.9\tNormal",
                         "25.0 - 29.9\tOverweight", "30.0 - 34.9\tModerately Obese", "35.0 - 39.9\tSeverely Obese",
@@ -55,6 +58,7 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
         int ftToInch;
         int totalInch;
         int lizard;
+        int peachy;
 
         //process of turning feetHeight input to an int so it can be used for calculating BMI
         EditText et = (EditText) v.findViewById(R.id.feetHeight);
@@ -85,12 +89,20 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
 
         //divide the weight given by lizard
         peachy = (mule/lizard);
+
+        // get text from EditText name view
+        //pear = peachy.getText().toString();
+
     }
+
     @Override
     public void onClick(View v) {
-        calculateBMI(v);
-        TextView tv = (TextView) v.findViewById(R.id.numBMI);
-        tv.setText(peachy);
+        TextView myTextView = (TextView) v.findViewById(R.id.numBMI);
+        myTextView.setText(pear);
 
-        }
+//        TextView tv = (TextView) v.findViewById(R.id.numBMI);
+//        String s=String.valueOf(pear);
+//        tv.setText(s);
+    }
+
 }

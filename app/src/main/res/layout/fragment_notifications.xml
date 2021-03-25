@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/feetHeight"
-        android:layout_width="84dp"
-        android:layout_height="51dp"
+        android:layout_width="88dp"
+        android:layout_height="55dp"
         android:layout_marginStart="84dp"
         android:layout_marginLeft="84dp"
         android:layout_marginTop="68dp"
@@ -25,9 +25,11 @@
         android:id="@+id/numBMI"
         android:layout_width="139dp"
         android:layout_height="59dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:hint="There will be a BMI here!"
+        app:layout_constraintBottom_toTopOf="@+id/BMIspinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonBMI" />
@@ -36,7 +38,7 @@
         android:id="@+id/BMIspinner"
         android:layout_width="409dp"
         android:layout_height="41dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numBMI" />
@@ -45,9 +47,11 @@
         android:id="@+id/buttonBMI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:onClick="onClick"
         android:text="@string/calc_BMI"
+        app:layout_constraintBottom_toTopOf="@+id/numBMI"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calcWithWeight" />
@@ -60,6 +64,7 @@
         android:layout_marginEnd="84dp"
         android:layout_marginRight="84dp"
         android:ems="10"
+        android:gravity="center"
         android:hint="inches"
         android:inputType="numberSigned"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,14 +76,16 @@
         android:id="@+id/calcWithWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="164dp"
         android:ems="10"
         android:gravity="center"
         android:hint="User's Weight"
-        android:inputType="numberSigned"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBMI"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
