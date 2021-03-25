@@ -97,7 +97,7 @@ public class addWeightKeyboard extends LinearLayout implements View.OnClickListe
     public void onClick(View view) {
         if (inputConnection == null)
             return;
-        //this is how the delete button works, please don't delete stuff
+        //this is zhow the delete button works, please don't delete stuff
         if (view.getId() == R.id.button_delete) {
             CharSequence selectedText = inputConnection.getSelectedText(0);
             if (TextUtils.isEmpty(selectedText)) {
