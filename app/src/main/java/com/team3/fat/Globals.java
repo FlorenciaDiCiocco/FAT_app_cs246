@@ -34,5 +34,15 @@ public class Globals {
     public static void set_weight (ListItem item){
         _user.list_of_input.add(item);
     }
+
+    // Getter weight_type
+    public static Weight_type get_weight_type() {
+        return _user.weight_type;
+    }
+
+    // Setter weight_type
+    public static void set_weight_type(Weight_type newWeight_type) {
+        _user.weight_type = newWeight_type;
+    }
 }
 
