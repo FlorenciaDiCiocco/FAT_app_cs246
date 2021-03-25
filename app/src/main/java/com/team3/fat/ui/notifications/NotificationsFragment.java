@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.team3.fat.R;
 public class NotificationsFragment extends Fragment  implements View.OnClickListener{
 
     private NotificationsViewModel notificationsViewModel;
+    public int peachy;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,20 +48,49 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
         return root;
     }
 
-    @Override
-    public void onClick(View v) {
+    public void calculateBMI(View v){
         //this will calculate the BMI eventually
         //the formula to do so is kg/m^2
         //otherwise calculate as (lbs/m^2)*703
-        View feet = getView().findViewById(R.id.feetHeight);
-        int buffalo;
+        int ftToInch;
+        int totalInch;
+        int lizard;
+
+        //process of turning feetHeight input to an int so it can be used for calculating BMI
+        EditText et = (EditText) v.findViewById(R.id.feetHeight);
+        String hello = et.getText().toString();
+        //Sorry for the variable names, but I am getting myself confused in trying to name them all relative to what they are
+        int horse = Integer.parseInt(hello);
+
         //feetHeight * 12 = cm (convert feet to inches)
-        //buffalo = feet * 12 ;
+        //ftToInch is the total inches of the feet input
+        ftToInch = horse * 12;
+
+        EditText butterfly = (EditText) v.findViewById(R.id.inchesHeight);
+        String goodbye = butterfly.getText().toString();
+        //Sorry for the variable name, but I am getting myself confused in trying to name them all relative to what they are
+        int donkey = Integer.parseInt(goodbye);
+
+        EditText rainbow = (EditText) v.findViewById(R.id.calcWithWeight);
+        String sorta = rainbow.getText().toString();
+        //Sorry for the variable name, but I am getting myself confused in trying to name them all relative to what they are
+        int mule = Integer.parseInt(sorta);
+
         //(feetHeight * 12) + inchesHeight (add feet in inches to additional inches) to get total height in inches
-        //lizard = total height in inches
-        //(buffalo + inchesHeight)^2 = lizard;
+        // totalInch = total height in inches
+        totalInch = ftToInch + donkey;
+
+        //(total Height in inches)^2
+        lizard = totalInch * totalInch;
+
         //divide the weight given by lizard
+        peachy = (mule/lizard);
+    }
+    @Override
+    public void onClick(View v) {
+        calculateBMI(v);
+        TextView tv = (TextView) v.findViewById(R.id.numBMI);
+        tv.setText(peachy);
 
         }
-
 }
