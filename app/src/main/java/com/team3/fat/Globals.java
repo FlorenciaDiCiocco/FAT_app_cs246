@@ -32,7 +32,10 @@ public class Globals {
 
     //setter a new input
     public static void set_weight (ListItem item){
-        _user.list_of_input.add(item);
+        ArrayList<ListItem> middle = new ArrayList<>();
+        middle.add(item);
+        middle.addAll(_user.list_of_input);
+        _user.list_of_input=middle;
     }
 
     // Getter weight_type
