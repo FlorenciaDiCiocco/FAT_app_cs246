@@ -1,6 +1,7 @@
 package com.team3.fat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Globals {
     public static Users _user = new Users();
@@ -34,5 +35,42 @@ public class Globals {
     public static void set_weight (ListItem item){
         _user.list_of_input.add(item);
     }
+
+    //Switch function for list items, this is to be run inside a for loop for each item
+    //public void convertWeight(ListItem item){
+       // switch(_user.weight_type){
+         //   case "kilo":
+           //     calcKiloToPound(item);
+         //       break;
+           // case "pound":
+           //     calcPoundToKilo(item);
+           //     break;
+       // }
+   // }
+
+    //functions for switch function
+   // public void calcPoundToKilo(ListItem item) {
+     //   item.weight = (float) (item.weight * 0.45359237);
+    //}
+
+    //functions for switch function
+    //public void calcKiloToPound(ListItem item) {
+    //    item.weight = (item.weight * 2.2046226218);
+    //}
+
+    //Toggle user's weight type
+    public void toggleWeightType(Users user,List user_list){
+        //For loop to parse through user's weight list
+        for(ListItem item: user_list){
+            //Check for p to k
+            if(user.weight_type == "p") {
+                item.setWeight((float) (item.weight * 0.45359237));
+            }else{
+                //For k to p
+                item.setWeight((float) (item.weight * 2.2046226218));
+            }
+        }
+    }
+
 }
 
