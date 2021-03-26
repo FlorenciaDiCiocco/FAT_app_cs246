@@ -81,7 +81,8 @@ public class Globals {
     //}
 
     //Toggle user's weight type
-    public static void toggleWeightType(Users user, ArrayList user_list){
+    public static void toggleWeightType(Users user){
+        ArrayList<ListItem> user_list = user.list_of_input;
         //For loop to parse through user's weight list
         for(int i = 0; i < user_list.size(); i += 1){
             ListItem item = (ListItem) user_list.get(i);
