@@ -7,5 +7,5 @@ public class Users {
     public String userEmail = "";
     public String password = "";
     public float weight_goal = 0;
-    public String weight_type = "p";
+    public Weight_type weight_type = Weight_type.pounds;
 }

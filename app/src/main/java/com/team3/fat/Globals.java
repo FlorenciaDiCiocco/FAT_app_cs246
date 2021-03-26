@@ -43,7 +43,6 @@ public class Globals {
     public static Weight_type get_weight_type() {
         return _user.weight_type;
     }
-
     // Setter weight_type
     public static void set_weight_type(Weight_type newWeight_type) {
         _user.weight_type = newWeight_type;
@@ -82,15 +81,16 @@ public class Globals {
     //}
 
     //Toggle user's weight type
-    public void toggleWeightType(Users user,List user_list){
+    public static void toggleWeightType(Users user, ArrayList user_list){
         //For loop to parse through user's weight list
-        for(ListItem item: user_list){
+        for(int i = 0; i < user_list.size(); i += 1){
+            ListItem item = (ListItem) user_list.get(i);
             //Check for pounds to kilos
-            if(user.weight_type == "pounds") {
-                item.setWeight((float) (item.weight * 0.45359237));
+            if(user.weight_type == Weight_type.pounds) {
+                item.weight = Math.round(item.weight * 0.45359237);
             }else{
                 //For kilos to pounds
-                item.setWeight((float) (item.weight * 2.2046226218));
+                item.weight = Math.round(item.weight * 2.2046226218);
             }
         }
     }

@@ -1,3 +1,4 @@
+/*
 package com.team3.fat;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,4 +26,4 @@ public class addWeight extends AppCompatActivity {
         InputConnection ic = editText.onCreateInputConnection(new EditorInfo());
         keyboard.setInputConnection(ic);
     }
-}
+}*/
