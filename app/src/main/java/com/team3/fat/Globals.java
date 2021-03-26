@@ -85,11 +85,11 @@ public class Globals {
     public void toggleWeightType(Users user,List user_list){
         //For loop to parse through user's weight list
         for(ListItem item: user_list){
-            //Check for p to k
-            if(user.weight_type == "p") {
+            //Check for pounds to kilos
+            if(user.weight_type == "pounds") {
                 item.setWeight((float) (item.weight * 0.45359237));
             }else{
-                //For k to p
+                //For kilos to pounds
                 item.setWeight((float) (item.weight * 2.2046226218));
             }
         }
