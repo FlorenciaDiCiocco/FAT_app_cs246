@@ -23,7 +23,7 @@ import com.team3.fat.CustomListAdapter;
 import com.team3.fat.Globals;
 import com.team3.fat.ListItem;
 import com.team3.fat.R;
-import com.team3.fat.addWeight;
+
 import com.team3.fat.addWeightKeyboard;
 import com.team3.fat.add_weight_final;
 
@@ -33,14 +33,17 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     Button adding;
-    EditText _myheader;
+    TextView _myheader;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        getListData();
+        //display the user's mail
+        _myheader = root.findViewById(R.id.header);
+        _myheader.setText(Globals.getuserEmail());
+        //display the list
         ArrayList userList = Globals.get_weight_list();
         final ListView lv = (ListView) root.findViewById(R.id.user_list);
         lv.setAdapter(new CustomListAdapter(getActivity(), userList));

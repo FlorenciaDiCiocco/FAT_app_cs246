@@ -42,7 +42,11 @@ public class CustomListAdapter extends BaseAdapter {
             holder = (ViewHolder) v.getTag();
         }
         holder.uName.setText(listData.get(position).getDate());
-        holder.uDesignation.setText(listData.get(position).getWeight_String());
+        if(Globals.get_weight_type()==Weight_type.pounds) {
+            holder.uDesignation.setText(listData.get(position).getWeight_String()+" lb");
+        }else {
+            holder.uDesignation.setText(listData.get(position).getWeight_String() + " kg");
+        }
         return v;
     }
     static class ViewHolder {

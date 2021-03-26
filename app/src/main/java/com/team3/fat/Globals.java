@@ -33,7 +33,30 @@ public class Globals {
 
     //setter a new input
     public static void set_weight (ListItem item){
-        _user.list_of_input.add(item);
+        ArrayList<ListItem> middle = new ArrayList<>();
+        middle.add(item);
+        middle.addAll(_user.list_of_input);
+        _user.list_of_input=middle;
+    }
+
+    // Getter weight_type
+    public static Weight_type get_weight_type() {
+        return _user.weight_type;
+    }
+
+    // Setter weight_type
+    public static void set_weight_type(Weight_type newWeight_type) {
+        _user.weight_type = newWeight_type;
+    }
+
+    // Getter Goal
+    public static float get_Goal() {
+        return _user.weight_goal;
+    }
+
+    // Setter Goal
+    public static void set_Goal(float Goal) {
+        _user.weight_goal = Goal;
     }
 
     //Switch function for list items, this is to be run inside a for loop for each item

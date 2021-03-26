@@ -74,7 +74,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-
+                            //I moved the setters to here because they were called before making sure that the user had input anything into them.
+                            //If they are placed here then we make sure that we send something useful.
+                            Globals.setuserEmail(stringEmail);
+                            Globals.setuserpassword(stringPassword);
                             startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));  //change this to the main activity after login and also change all loginMain to MainActivity
                         }
                         else{
@@ -102,5 +105,9 @@ public class MainActivity extends AppCompatActivity {
     //    button.setText("Yo yo yo");
 
     //}
-
+    public void damn_it_all(View view){
+        //I'll remove this function before the handin, sorry
+        Globals.setuserEmail("user's name");
+        startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));
+    }
 }

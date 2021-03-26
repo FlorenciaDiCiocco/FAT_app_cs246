@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.team3.fat.add_weight_final">
+    tools:context=".Save_Goal">
 
     <EditText
-        android:id="@+id/input_text"
+        android:id="@+id/input_goal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
-        android:layout_marginTop="145dp"
+        android:layout_marginTop="172dp"
         android:ems="10"
         android:gravity="center_horizontal"
-        android:hint="input weight"
+        android:hint="input weight goal"
         android:inputType="phone"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="239dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/save_button"
+        android:id="@+id/save_goal_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginLeft="158dp"
-        android:layout_marginBottom="414dp"
-        android:onClick="Save_input"
-        android:text="SAVE" />
+        android:layout_marginTop="160dp"
+        android:onClick="Save_input_goal"
+        android:text="SAVE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_goal" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
