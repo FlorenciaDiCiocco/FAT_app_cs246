@@ -43,6 +43,7 @@ public class Globals {
     public static Weight_type get_weight_type() {
         return _user.weight_type;
     }
+
     // Setter weight_type
     public static void set_weight_type(Weight_type newWeight_type) {
         _user.weight_type = newWeight_type;
