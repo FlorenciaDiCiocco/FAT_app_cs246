@@ -31,6 +31,7 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
     public int peachy;
     String pear;
     TextView _mygoal;
+    TextView bmi;
     Button Changing;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -66,6 +67,7 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
             _mygoal.setText("Your goal is: " + Globals.get_Goal() + ".\nYou can change it here:");
         }
 
+
         //Here we call change weight goal
         Changing = root.findViewById(R.id.change_goal);
         Changing.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +77,7 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
                 startActivity(weightIntent);
             }
         });
+
         return root;
     }
 
@@ -103,7 +106,15 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
         int lizard = totalInch * totalInch; //(total Height in inches)^2
 
         peachy = (mule / lizard); //divide the weight given by lizard
-        pear = Integer.toString(peachy);
+        //pear = Integer.toString(peachy);
+
+        bmi = v.findViewById(R.id.numBMI);
+        if (peachy == 0) {
+            bmi.setText("You haven't given the right info yet.");
+        } else {
+            bmi.setText("Your BMI is: " + peachy +".");
+        }
+
 
     }
 
