@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.team3.fat.Globals;
 import com.team3.fat.R;
 import com.team3.fat.Save_Goal;
+import com.team3.fat.Weight_type;
 
 import java.util.Scanner;
 
@@ -28,7 +29,7 @@ public class NotificationsFragment extends Fragment{
 
     private NotificationsViewModel notificationsViewModel;
 
-    public int peachy;
+    public double peachy;
     String pear;
     TextView _mygoal;
     TextView bmi;
@@ -114,11 +115,16 @@ public class NotificationsFragment extends Fragment{
         int totalInch = ftToInch + donkey; // totalInch = total height in inches
         int lizard = totalInch * totalInch; //(total Height in inches)^2
 
-        peachy = (mule / lizard); //divide the weight given by lizard
+        double result = (double) mule / lizard; //divide the weight given by lizard
         //pear = Integer.toString(peachy);
 
         bmi = v.findViewById(R.id.numBMI);
-        bmi.setText("Your BMI is: " + peachy +".");
+        if(Globals.get_weight_type()== Weight_type.pounds){
+            result=result*703;
+        }
+
+        result= Math.round(result);
+            bmi.setText("Your BMI is: " + result +".");
 
 
 
