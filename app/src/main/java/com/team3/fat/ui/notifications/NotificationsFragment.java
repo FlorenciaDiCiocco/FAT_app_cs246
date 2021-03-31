@@ -97,19 +97,19 @@ public class NotificationsFragment extends Fragment{
 
         //process of turning feetHeight input to an int so it can be used for calculating BMI
         EditText et = (EditText) v.findViewById(R.id.feetHeight);
-        String hello = et.getText().toString();
-        int horse = Integer.parseInt(hello);
+        String hello = et.getText().toString(); //converts input to a string
+        int horse = Integer.parseInt(hello); //converts string to an int
 
         //ftToInch is the total inches of the feet input
         int ftToInch = horse * 12; //feetHeight * 12 = cm (convert feet to inches)
 
         EditText butterfly = (EditText) v.findViewById(R.id.inchesHeight);
-        String goodbye = butterfly.getText().toString();
-        int donkey = Integer.parseInt(goodbye);
+        String goodbye = butterfly.getText().toString(); //converts input to a string
+        int donkey = Integer.parseInt(goodbye); //converts string to an int
 
         EditText rainbow = (EditText) v.findViewById(R.id.calcWithWeight);
-        String sorta = rainbow.getText().toString();
-        int mule = Integer.parseInt(sorta);
+        String sorta = rainbow.getText().toString(); //converts input to a string
+        int mule = Integer.parseInt(sorta); //converts string to an int
 
         //(feetHeight * 12) + inchesHeight (add feet-in-inches to additional inches) to get total height in inches
         int totalInch = ftToInch + donkey; // totalInch = total height in inches
