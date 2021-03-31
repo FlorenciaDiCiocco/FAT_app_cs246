@@ -31,10 +31,10 @@ public class RegisterUser extends AppCompatActivity {
 
         Auth = FirebaseAuth.getInstance();
 
+        //connect variables with the XML id
         regEmail = findViewById(R.id.regEmail);
         regPass = findViewById(R.id.regPass);
         confirmPass = findViewById(R.id.confirmPass);
-
         signUp = findViewById(R.id.signUp);
 
         signUp.setOnClickListener(new View.OnClickListener() {
