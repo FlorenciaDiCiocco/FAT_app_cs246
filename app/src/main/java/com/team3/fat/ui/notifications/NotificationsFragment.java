@@ -118,11 +118,9 @@ public class NotificationsFragment extends Fragment{
         //pear = Integer.toString(peachy);
 
         bmi = v.findViewById(R.id.numBMI);
-        if (peachy == 0) {
-            bmi.setText("You haven't given the right info yet.");
-        } else {
+
             bmi.setText("Your BMI is: " + peachy +".");
-        }
+
 
 
     }
