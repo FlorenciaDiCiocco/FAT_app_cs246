@@ -111,5 +111,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BMIspinner" />
 
+    <Button
+        android:id="@+id/toggleWeightType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toggle Weight"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="524dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
