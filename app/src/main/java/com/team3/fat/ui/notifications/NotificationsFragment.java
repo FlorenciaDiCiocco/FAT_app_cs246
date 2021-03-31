@@ -33,7 +33,7 @@ public class NotificationsFragment extends Fragment{
     String pear;
     TextView _mygoal;
     TextView bmi;
-    Button Changing,Lucy;
+    Button Changing,Lucy,Toggle;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -88,6 +88,15 @@ public class NotificationsFragment extends Fragment{
             }
         });
 
+        //Here we call change weight goal
+        Toggle = root.findViewById(R.id.toggleWeightType);
+        Toggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Globals.toggleWeightType(Globals._user);
+            }
+        });
+
         return root;
     }
 
@@ -129,4 +138,6 @@ public class NotificationsFragment extends Fragment{
 
 
     }
+
+
 }

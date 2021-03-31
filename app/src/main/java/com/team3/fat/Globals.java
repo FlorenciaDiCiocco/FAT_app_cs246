@@ -89,9 +89,11 @@ public class Globals {
             ListItem item = (ListItem) user_list.get(i);
             //Check for pounds to kilos
             if(user.weight_type == Weight_type.pounds) {
+                Globals.set_weight_type(Weight_type.kilograms);
                 item.weight = Math.round(item.weight * 0.45359237);
             }else{
                 //For kilos to pounds
+                Globals.set_weight_type(Weight_type.pounds);
                 item.weight = Math.round(item.weight * 2.2046226218);
             }
         }
