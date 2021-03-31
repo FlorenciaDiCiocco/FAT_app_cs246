@@ -24,7 +24,7 @@ import com.team3.fat.Save_Goal;
 
 import java.util.Scanner;
 
-public class NotificationsFragment extends Fragment  implements View.OnClickListener{
+public class NotificationsFragment extends Fragment{
 
     private NotificationsViewModel notificationsViewModel;
 
@@ -32,7 +32,7 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
     String pear;
     TextView _mygoal;
     TextView bmi;
-    Button Changing;
+    Button Changing,Lucy;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -78,6 +78,15 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
             }
         });
 
+        //Here we calculate BMI
+        Lucy = root.findViewById(R.id.buttonBMI);
+        Lucy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateBMI(root);
+            }
+        });
+
         return root;
     }
 
@@ -116,10 +125,5 @@ public class NotificationsFragment extends Fragment  implements View.OnClickList
         }
 
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        calculateBMI(v);
     }
 }
