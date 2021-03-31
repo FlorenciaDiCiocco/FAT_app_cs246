@@ -27,6 +27,7 @@ public class ForgotPass extends AppCompatActivity {
 
         Auth = FirebaseAuth.getInstance();
 
+        //connect variables with the XML id
         userEmail = findViewById(R.id.editUserEmail);
         sendEmail = findViewById(R.id.sendEmail);
 
