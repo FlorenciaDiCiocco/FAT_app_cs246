@@ -34,15 +34,19 @@ public class ForgotPass extends AppCompatActivity {
         sendEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //convert the user input to a String and trim it.
                 String User = userEmail.getText().toString().trim();
 
+                //Check to see if the user entered a email.
                 if (TextUtils.isEmpty(User)){
                     Toast.makeText(ForgotPass.this, "Please enter a Valid Email.", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //Send the email to Firebase to send a change password email to the user.
                 else{
                     Auth.sendPasswordResetEmail(User).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
+                        //when completed make message that the task was completed.
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(ForgotPass.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
