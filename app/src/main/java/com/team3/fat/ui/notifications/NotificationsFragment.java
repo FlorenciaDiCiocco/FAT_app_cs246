@@ -134,10 +134,5 @@ public class NotificationsFragment extends Fragment{
 
         result= Math.round(result);
             bmi.setText("Your BMI is: " + result +".");
-
-
-
     }
-
-
 }

@@ -117,9 +117,5 @@ public class MainActivity extends AppCompatActivity {
     //    button.setText("Yo yo yo");
 
     //}
-    public void damn_it_all(View view){
-        //I'll remove this function before the handin, sorry
-        Globals.setuserEmail("user's name");
-        startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));
-    }
+
 }
