@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void open_forgotPassword(){
-        Intent intent = new Intent(this, MainActivity.class); //ForgotPass.class
+        Intent intent = new Intent(this, ForgotPass.class);
         startActivity(intent);
     }
 
