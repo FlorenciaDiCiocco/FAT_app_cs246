@@ -1,6 +1,5 @@
 package com.team3.fat.ui.notifications;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,18 +24,15 @@ import com.team3.fat.MainActivity;
 import com.team3.fat.R;
 import com.team3.fat.Save_Goal;
 import com.team3.fat.Weight_type;
-
 import java.util.Scanner;
 
 public class NotificationsFragment extends Fragment{
 
     private NotificationsViewModel notificationsViewModel;
 
-    public double peachy;
-    String pear;
     TextView _mygoal;
     TextView bmi;
-    Button Changing,Lucy,Toggle, bmiButton;
+    Button Changing,Lucy,Toggle;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -70,8 +66,6 @@ public class NotificationsFragment extends Fragment{
         } else {
             _mygoal.setText("Your goal is: " + Globals.get_Goal() + ".\nYou can change it here:");
         }
-
-        bmiButton = bmiButton.findViewById(R.id.numBMI);
 
         //Here we call change weight goal
         Changing = root.findViewById(R.id.change_goal);
@@ -133,19 +127,16 @@ public class NotificationsFragment extends Fragment{
         //check to see if the user entered their height in feet.
         if (TextUtils.isEmpty(stringFeetHeight)){
             Toast.makeText(this.getActivity(), "Please Enter Your Height In Feet.", Toast.LENGTH_SHORT).show();
-            return;
         }
 
         //check to see if the user entered their height in inches.
         if (TextUtils.isEmpty(stringInchesHeight)){
             Toast.makeText(this.getActivity(),"Please Enter Your Additional Inches.", Toast.LENGTH_SHORT).show();
-            return;
         }
 
         //check to see if the user entered their weight.
         if (TextUtils.isEmpty(stringCalcWithWeight)){
             Toast.makeText(this.getActivity(),"Please Enter Your Weight.", Toast.LENGTH_SHORT).show();
-            return;
         }
 
         //this determines if there is a need to convert the lbs to kg and displays the info
