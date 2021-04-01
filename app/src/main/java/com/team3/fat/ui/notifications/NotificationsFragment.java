@@ -105,33 +105,34 @@ public class NotificationsFragment extends Fragment{
         //Sorry for the variable names, but I am getting myself confused in trying to name them all relative to what they are
 
         //process of turning feetHeight input to an int so it can be used for calculating BMI
-        EditText et = (EditText) v.findViewById(R.id.feetHeight);
-        String hello = et.getText().toString(); //converts input to a string
-        int horse = Integer.parseInt(hello); //converts string to an int
+        EditText etFeet = (EditText) v.findViewById(R.id.feetHeight);
+        String stringFeetHeight = etFeet.getText().toString(); //converts input to a string
+        int intFeetHeight = Integer.parseInt(stringFeetHeight); //converts string to an int
 
         //ftToInch is the total inches of the feet input
-        int ftToInch = horse * 12; //feetHeight * 12 = cm (convert feet to inches)
+        int ftToInch = intFeetHeight * 12; //feetHeight * 12 = cm (convert feet to inches)
 
-        EditText butterfly = (EditText) v.findViewById(R.id.inchesHeight);
-        String goodbye = butterfly.getText().toString(); //converts input to a string
-        int donkey = Integer.parseInt(goodbye); //converts string to an int
+        EditText etInchesHeight = (EditText) v.findViewById(R.id.inchesHeight);
+        String stringInchesHeight = etInchesHeight.getText().toString(); //converts input to a string
+        int intInchesHeight = Integer.parseInt(stringInchesHeight); //converts string to an int
 
-        EditText rainbow = (EditText) v.findViewById(R.id.calcWithWeight);
-        String sorta = rainbow.getText().toString(); //converts input to a string
-        int mule = Integer.parseInt(sorta); //converts string to an int
+        EditText etCalcWithWeight = (EditText) v.findViewById(R.id.calcWithWeight);
+        String stringCalcWithWeight = etCalcWithWeight.getText().toString(); //converts input to a string
+        int intCalcWithWeight = Integer.parseInt(stringCalcWithWeight); //converts string to an int
 
         //(feetHeight * 12) + inchesHeight (add feet-in-inches to additional inches) to get total height in inches
-        int totalInch = ftToInch + donkey; // totalInch = total height in inches
-        int lizard = totalInch * totalInch; //(total Height in inches)^2
+        int totalInch = ftToInch + intInchesHeight; // totalInch = total height in inches
+        int inchesSquared = totalInch * totalInch; //(total Height in inches)^2
 
-        double result = (double) mule / lizard; //divide the weight given by lizard
-        //pear = Integer.toString(peachy);
+        double result = (double) intCalcWithWeight / inchesSquared; //divide the weight given by lizard
 
+        //this determines if there is a need to convert the lbs to kg and displays the info
         bmi = v.findViewById(R.id.numBMI);
         if(Globals.get_weight_type()== Weight_type.pounds){
             result=result*703;
         }
 
+        //displays the results
         result= Math.round(result);
             bmi.setText("Your BMI is: " + result +".");
     }
