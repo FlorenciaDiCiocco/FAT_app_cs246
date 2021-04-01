@@ -3,6 +3,7 @@ package com.team3.fat.ui.notifications;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +21,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.team3.fat.Globals;
+import com.team3.fat.MainActivity;
 import com.team3.fat.R;
 import com.team3.fat.Save_Goal;
 import com.team3.fat.Weight_type;
@@ -33,7 +36,7 @@ public class NotificationsFragment extends Fragment{
     String pear;
     TextView _mygoal;
     TextView bmi;
-    Button Changing,Lucy,Toggle;
+    Button Changing,Lucy,Toggle, bmiButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -68,6 +71,7 @@ public class NotificationsFragment extends Fragment{
             _mygoal.setText("Your goal is: " + Globals.get_Goal() + ".\nYou can change it here:");
         }
 
+        bmiButton = bmiButton.findViewById(R.id.numBMI);
 
         //Here we call change weight goal
         Changing = root.findViewById(R.id.change_goal);
@@ -126,6 +130,24 @@ public class NotificationsFragment extends Fragment{
 
         double result = (double) intCalcWithWeight / inchesSquared; //divide the weight given by lizard
 
+        //check to see if the user entered their height in feet.
+        if (TextUtils.isEmpty(stringFeetHeight)){
+            Toast.makeText(this.getActivity(), "Please Enter Your Height In Feet.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        //check to see if the user entered their height in inches.
+        if (TextUtils.isEmpty(stringInchesHeight)){
+            Toast.makeText(this.getActivity(),"Please Enter Your Additional Inches.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        //check to see if the user entered their weight.
+        if (TextUtils.isEmpty(stringCalcWithWeight)){
+            Toast.makeText(this.getActivity(),"Please Enter Your Weight.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         //this determines if there is a need to convert the lbs to kg and displays the info
         bmi = v.findViewById(R.id.numBMI);
         if(Globals.get_weight_type()== Weight_type.pounds){
@@ -135,5 +157,6 @@ public class NotificationsFragment extends Fragment{
         //displays the results
         result= Math.round(result);
             bmi.setText("Your BMI is: " + result +".");
+
     }
 }
