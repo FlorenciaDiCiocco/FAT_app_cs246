@@ -3,6 +3,7 @@ package com.team3.fat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -15,9 +16,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth Auth;
     EditText userEmail, userPassword;
     Button newUser, forgotPass, login;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private static final String TAG = "MainActivity";
 
 
     @Override
@@ -87,7 +99,123 @@ public class MainActivity extends AppCompatActivity {
                             //If they are placed here then we make sure that we send something useful.
                             Globals.setuserEmail(stringEmail);
                             Globals.setuserpassword(stringPassword);
+                            // need to set the values to default incase user logs out then create a new account.
+                            Globals.set_weight_type(Weight_type.pounds);
+                            Globals.set_Goal(0);
+                            Globals._user.list_of_input = new ArrayList<> ();
+                            /*
+                            * Store in Firestore
+                            */
+
+                            DocumentReference docRef = db.collection("Users").document(Globals.getuserEmail());
+                            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot document = task.getResult();
+                                        if (document.exists()) {
+                                            Globals._user = document.toObject(Users.class);
+
+                                        } else {
+                                            db.collection("Users").document(Globals.getuserEmail())
+                                                    .set(Globals._user)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            Log.d(TAG, "New DocumentSnapshot successfully written!");
+                                                        }
+                                                    })
+                                                    .addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Log.w(TAG, "Error writing New document", e);
+                                                        }
+                                                    });
+                                        }
+                                    } else {
+                                        Log.d(TAG, "get failed with ", task.getException());
+                                    }
+                                }
+                            });
+/*
+                            DocumentReference docRef = db.collection("Users").document(Globals.getuserEmail());
+                            docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    Users user = documentSnapshot.toObject(Users.class);
+                                    Globals.setuserEmail(user.userEmail);
+                                    Globals.setuserpassword(user.password);
+                                    Globals.set_Goal(user.weight_goal);
+                                    Globals._user.list_of_input = user.list_of_input;
+                                    Globals.set_weight_type(user.weight_type);
+
+
+
+                                }
+                            });
+
+*/
+
+                            /*
+                            DocumentReference docRef = db.collection("Users").document(stringEmail);
+                            docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    Users user = documentSnapshot.toObject(Users.class);
+                                    Globals._user = user;
+
+                                }
+                            });
+
+                                db.collection("Users").document(Globals.getuserEmail())
+                                        .set(Globals._user)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Log.d(TAG, "New DocumentSnapshot successfully written!");
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Log.w(TAG, "Error writing New document", e);
+                                            }
+                                        });
+
+                             */
+
+
+
+
+
+
+
+                            /*
+                            Map<String, Object> userInfo = new HashMap<>();
+                            userInfo.put("email" , stringEmail);
+                            userInfo.put("password" , stringPassword);
+                            userInfo.put("goal", Globals.get_Goal());
+                            userInfo.put("weightlist", Globals.get_weight_list());
+                            userInfo.put("weight Type", Globals.get_weight_type());
+                            db.collection("Users").document(stringEmail)
+                                    .set(userInfo)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d(TAG, "DocumentSnapshot successfully written!");
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.w(TAG, "Error writing document", e);
+                                        }
+                                    });
+
+
+                             */
                             startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));
+
                         }
                         //Something went wrong with the login. Email or password could be wrong.
                         else{
