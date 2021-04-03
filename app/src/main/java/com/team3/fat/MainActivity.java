@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
                                                         }
                                                     });
                                         }
+                                        startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));
                                     } else {
                                         Log.d(TAG, "get failed with ", task.getException());
                                     }
@@ -185,11 +186,6 @@ public class MainActivity extends AppCompatActivity {
                              */
 
 
-
-
-
-
-
                             /*
                             Map<String, Object> userInfo = new HashMap<>();
                             userInfo.put("email" , stringEmail);
@@ -214,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                              */
-                            startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));
+                           // startActivity(new Intent(getApplicationContext(), MainActivity2_bottom_bar.class));
 
                         }
                         //Something went wrong with the login. Email or password could be wrong.
